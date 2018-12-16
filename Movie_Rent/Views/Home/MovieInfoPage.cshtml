@@ -1,0 +1,13 @@
+﻿@model Movie_Rent.Models.Movie
+
+@{
+    ViewBag.Title = "MovieInfoPage";
+}
+
+<h2>@Model.MovieName</h2>
+
+@Html.Partial("MovieInfo")
+<center>
+    <br />
+    <a href="@Url.Action("SendOrder", "Home", new { @MovieName= @Model.MovieName})" class="btn btn-info">Order movie</a>
+</center>

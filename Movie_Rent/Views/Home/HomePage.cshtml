@@ -1,0 +1,51 @@
+﻿@model Movie_Rent.Models.MovieList
+@using Movie_Rent.Models
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Hello,@Session["UserType"] @Session["UserName"] </h2>
+<br />
+<div>
+    @using (Html.BeginForm("HomePage", "Home", FormMethod.Post, new { @class = "form-inline" }))
+    {
+        <input type="text" class="form-control" placeholder="Search for..." name="searchValue">
+        <input class="btn btn-primary" type="submit" value="search">
+
+        <span style="display:inline-block; width: 200px;"></span>
+        <a href="@Url.Action("CategoryMovies", "Home", new { @category = "action"})" class="btn btn-danger">Action</a>
+        <span style="display:inline-block; width: 5px;"></span>
+        <a href="@Url.Action("CategoryMovies", "Home", new { @category = "comedy"})" class="btn btn-success">Comedy</a>
+        <span style="display:inline-block; width: 5px;"></span>
+        <a href="@Url.Action("CategoryMovies", "Home", new { @category = "fantasy"})" class="btn btn-primary">Fantasy</a>
+        <span style="display:inline-block; width: 5px;"></span>
+        <a href="@Url.Action("CategoryMovies", "Home", new { @category = "animation"})" class="btn btn-warning">Animation</a>
+        <span style="display:inline-block; width: 5px;"></span>
+        <a href="@Url.Action("CategoryMovies", "Home", new { @category = "science fiction"})" class="btn btn-info">Science fiction</a>
+        <span style="display:inline-block; width: 5px;"></span>
+        <a href="@Url.Action("CategoryMovies", "Home", new { @category = "adventure"})" class="btn btn-success">Adventure</a>
+        }
+</div>
+<br />
+
+
+<br />
+<center>
+    <table>
+        <tr>
+            @{
+                for (int i = 0; i < Model.movies.Count; i++)
+                {
+                    <td style="width:300px">
+                        <a href="@Url.Action("MovieInfoPage", "Home", new { @MovieName= @Model.movies[i].MovieName })">
+                            <img src="@Model.movies[i].ImageLink" style="vertical-align: middle; width: 200px;">
+                            <center><div style='width: 100px;'>@Model.movies[i].MovieName</div></center>
+                        </a>
+                    </td>
+                    if (i % 4 == 0 && i !=0){<tr></tr>}
+                }
+
+             }
+</table>
+</center>

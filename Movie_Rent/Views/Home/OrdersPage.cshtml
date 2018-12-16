@@ -1,0 +1,37 @@
+﻿@model Movie_Rent.Models.OrderList
+@using Movie_Rent.Models
+
+@{
+    ViewBag.Title = "OrdersPage";
+}
+
+<h3><strong> orders:</strong></h3>
+<br />
+<br />
+
+    <table>
+            @{
+                foreach (Order o in Model.orders)
+                {
+                <tr>
+                    <td style="width:300px">
+                        <a href="@Url.Action("MovieInfo", "Home", new { @MovieName= @o.MovieName })">
+                            <div style='width: 100px;'><strong>@o.MovieName</strong></div>
+                        </a>
+                    </td>
+                    <td style="width:130px">
+                        <a href="@Url.Action("PayOrderView", "Home", new {  @OrderNum= @o.OrderNum, @MovieName= @o.MovieName })">
+                            <div style='width: 100px;' class="btn btn-primary">Pay</div>
+                        </a>
+                    </td>
+                    <td style="width:130px">
+                        <a href="@Url.Action("RemoveOrder", "Home", new { @OrderNum= @o.OrderNum })">
+                            <div style='width: 130px;'class="btn btn-danger">Remove order</div>
+                        </a>
+                    </td>
+                </tr>
+                }
+
+            }
+     </table>
+

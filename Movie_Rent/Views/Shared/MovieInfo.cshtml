@@ -1,0 +1,19 @@
+﻿@model Movie_Rent.Models.Movie
+
+<table>
+    <tr>
+        <td style="color:darkcyan; font-size:larger "><strong>Category:</strong></td>
+        <td style="color:black; font-size:large">
+            <span style="display:inline-block; width: 5px;"></span>
+            @Model.Type
+        </td>
+    </tr>
+</table>
+
+<br />
+<center style="color:darkslategrey; font-size:larger">@Model.Description</center>
+<br />
+<center>
+    <img src="@Model.ImageLink" style="vertical-align: middle; width: 200px;">
+    <br />
+</center>

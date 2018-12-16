@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Manager Zone";
+}
+
+<h1>Welcome to your Manager Zone:</h1>
+<br />
+<center>
+    <table>
+        <tr>
+            <td>
+            <a href="@Url.Action("UsersListPage", "Manager", new {})">
+                <div style='font-size: large; height:50px; width:500px;' class="btn btn-primary">Users list</div>
+            </a>
+            <span style="display:inline-block; width: 200px;"></span>
+            </td>
+            <td>
+            <a href="@Url.Action("AddUserPage", "Manager", new {})">
+                <div style='font-size: large; height:50px; width:500px;' class="btn btn-info">Add user</div>
+            </a>
+            <span style="display:inline-block; width: 200px;"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="@Url.Action("MovieListPage", "Manager", new {})">
+                    <div style='font-size: large; height:50px; width:500px;' class="btn btn-primary">Movie list</div>
+                </a>
+                <span style="display:inline-block; width: 200px;"></span>
+            </td>
+            <td>
+            <a href="@Url.Action("AddMoviePage", "Manager", new {})">
+                <div style='font-size: large; height:50px; width:500px;' class="btn btn-info">Add movie</div>
+            </a>
+            <span style="display:inline-block; width: 200px;"></span>
+            <td>
+        </tr>
+        <tr>
+            <td>
+                <a href="@Url.Action("OrderListPage", "Manager", new {})">
+                    <div style='font-size: large; height:50px; width:500px;' class="btn btn-primary">Order list</div>
+                </a>
+                <span style="display:inline-block; width: 200px;"></span>
+            </td>
+        </tr>
+    </table>
+</center>

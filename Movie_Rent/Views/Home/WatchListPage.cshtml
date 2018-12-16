@@ -1,0 +1,30 @@
+﻿@model Movie_Rent.Models.MovieList
+@using Movie_Rent.Models
+
+@{
+    ViewBag.Title = "Watch List";
+}
+
+<center><h2><strong>Your watch list:</strong></h2></center>
+<br />
+<br />
+<center>
+    <table>
+        <tr>
+            @{
+                for (int i = 0; i < Model.movies.Count; i++)
+                {
+                    <td style="width:300px">
+                        <a href="@Model.movies[i].Link">
+                            <img src="@Model.movies[i].ImageLink" style="vertical-align: middle; width: 200px;">
+                            <center><div style='width: 100px;'>@Model.movies[i].MovieName</div></center>
+                        </a>
+                    </td>
+                    if (i % 4 == 0 && i != 0)
+                    { <tr></tr>}
+                }
+
+            }
+        </table>
+ </center>
+

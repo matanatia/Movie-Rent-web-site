@@ -1,0 +1,45 @@
+﻿@model Movie_Rent.Models.User
+
+@{
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+    ViewBag.Title = "Registration";
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <center>
+        @using (Html.BeginForm("RegistrationPage", "Login", FormMethod.Post))
+        {
+            <h3><strong style="color:gray">MoviesRent.com - Registration:</strong></h3>
+            <h3>
+                <strong> User Name:</strong>
+                <span style="display:inline-block; width: 5px;"></span>
+                @Html.TextBoxFor(x => x.UserName)
+                <br>
+                <strong style="color:orangered">@ViewBag.message1</strong>
+                <br>
+                <strong>Password:</strong>
+                <span style="display:inline-block; width: 20px;"></span>
+                @Html.TextBoxFor(x => x.Password, new { @type = "password" })
+                <br>
+                <br>
+                <strong>Mail address:</strong>
+                @Html.TextBoxFor(x => x.Mail)
+                <br>
+                <br>
+                @Html.ActionLink("Return", "LoginPage", "Login", new { @class = "btn btn-info", @style = "font-size: large; height:50px; width:200px" })
+                <input id="submitRegistr" class="btn btn-primary" type="submit" value="Register" style="font-size: large; height:50px; width:200px">
+            </h3>
+            <input type="hidden" name="Type" value="user">
+            <br>
+            @Html.ValidationMessageFor(x => x.UserName)
+            <br>
+            @Html.ValidationMessageFor(x => x.Password)
+            <br>
+            @Html.ValidationMessageFor(x => x.Mail)
+        }
+    </center>
+</body>
+</html>

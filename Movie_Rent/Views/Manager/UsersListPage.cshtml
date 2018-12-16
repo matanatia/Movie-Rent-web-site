@@ -1,0 +1,44 @@
+﻿@model Movie_Rent.Models.UserList
+@using Movie_Rent.Models
+
+@{
+    ViewBag.Title = "Users List";
+}
+
+<h3><strong> users:</strong></h3>
+<br />
+<br />
+
+<table>
+    <tr>
+        <td style="width:300px"><strong style="font-size:large; color:darkcyan">User name:</strong></td>
+        <td style="width:300px"><strong style="font-size:large; color:darkcyan">Type:</strong></td>
+        <td style="width:300px"><strong style="font-size:large; color:darkcyan">E-mail:</strong></td>
+    </tr>
+    @{
+        foreach (User u in Model.users)
+        {
+            <tr>
+                <td style="width:300px">
+                    <div style='width: 100px;'><strong>@u.UserName</strong></div>
+                </td>
+                <td style="width:300px">
+                    <div style='width: 100px;'><strong>@u.Type</strong></div>
+                </td>
+                <td style="width:300px">
+                    <div style='width: 100px;'><strong>@u.Mail</strong></div>
+                </td>
+                <td style="width:130px">
+                    <a href="@Url.Action("RemoveUser", "Manager", new {  @UserName= @u.UserName })">
+                        <div style='width: 130px;' class="btn btn-danger">Remove user</div>
+                    </a>
+                    <span style="display:inline-block; width: 200px;"></span>
+                </td>
+            </tr>
+        }
+
+    }
+</table>
+
+
+

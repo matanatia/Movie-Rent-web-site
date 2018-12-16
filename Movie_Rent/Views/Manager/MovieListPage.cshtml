@@ -1,0 +1,43 @@
+﻿@model Movie_Rent.Models.MovieList
+@using Movie_Rent.Models
+
+@{
+    ViewBag.Title = "Movie List";
+}
+
+<table>
+    <tr>
+        <td style="width:300px"><strong style="font-size:large; color:darkcyan">Movie info page:</strong></td>
+    </tr>
+    @{
+        foreach (Movie m in Model.movies)
+        {
+            <tr>
+                <td style="width:300px">
+                    <a href="@Url.Action("MovieInfo", "Home", new { @MovieName= @m.MovieName })">
+                        <img src="@m.ImageLink" style="vertical-align: middle; width: 200px;">
+                        <div style='width: 100px;'>@m.MovieName</div>
+                        <span style="display:inline-block; width: 10px;"></span>
+                    </a>
+                </td>
+                <td style="width:150px">
+                    <a href="@Url.Action("RemoveMovie", "Manager", new {  @MovieName= @m.MovieName })">
+                        <div style='width: 130px;' class="btn btn-danger">Remove</div>
+                    </a>
+                </td>
+                <td style="width:150px">
+                    <a href="@Url.Action("EditMovie", "Manager", new {  @MovieName= @m.MovieName })">
+                        <div style='width: 130px;' class="btn btn-primary">Edit</div>
+                    </a>
+                </td>
+                <td style="width:150px">
+                    <a href="@m.Link">
+                        <center><div style='width: 150px;' class="btn btn-success">Movie watch link</div></center>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    }
+</table>
+

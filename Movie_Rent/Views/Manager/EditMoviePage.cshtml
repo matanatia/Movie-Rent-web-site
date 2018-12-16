@@ -1,0 +1,47 @@
+﻿@model Movie_Rent.Models.Movie
+
+@{
+    ViewBag.Title = "Edit Movie";
+}
+
+    <center>
+        @using (Html.BeginForm("EditMoviePage", "Manager", FormMethod.Post))
+        {
+            <h3><strong style="color:gray">Edit Movie - @Model.MovieName</strong></h3>
+            <h3>
+                @Html.TextBoxFor(x => x.MovieName, new { @class = "hidden" })
+                <strong>Movie type:</strong>
+                <span style="display:inline-block; width: 30px;"></span>
+                @Html.TextBoxFor(x => x.Type, new {})
+                <br>
+                <br>
+                <strong>Movie description:</strong>
+                @Html.TextAreaFor(x => x.Description, new {})
+                <br>
+                <br>
+                <strong>Movie watch link:</strong>
+                <span style="display:inline-block; width: 5px;"></span>
+                @Html.TextAreaFor(x => x.Link, new {})
+                <br>
+                <br>
+                <strong>Movie image link:</strong>
+                <span style="display:inline-block; width: 10px;"></span>
+                @Html.TextAreaFor(x => x.ImageLink, new {})
+                <br>
+                <br>
+                @Html.ActionLink("Return", "MovieListPage", "Manager", new { @class = "btn btn-info", @style = "font-size: large; height:50px; width:200px" })
+                <input id="submitRegistr" class="btn btn-primary" type="submit" value="Save" style="font-size: large; height:50px; width:200px">
+            </h3>
+            <br>
+            @Html.ValidationMessageFor(x => x.MovieName)
+            <br>
+            @Html.ValidationMessageFor(x => x.Type)
+            <br>
+            @Html.ValidationMessageFor(x => x.Description)
+            <br>
+            @Html.ValidationMessageFor(x => x.Link)
+            <br>
+            @Html.ValidationMessageFor(x => x.ImageLink)
+        }
+    </center>
+

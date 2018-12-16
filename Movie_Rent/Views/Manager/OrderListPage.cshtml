@@ -1,0 +1,41 @@
+﻿@model Movie_Rent.Models.OrderList
+@using Movie_Rent.Models
+
+@{
+    ViewBag.Title = "Order List";
+}
+
+<h3><strong> users:</strong></h3>
+<br />
+<br />
+
+<table>
+    <tr>
+        <td style="width:300px"><strong style="font-size:large; color:darkcyan">User name:</strong></td>
+        <td style="width:300px"><strong style="font-size:large; color:darkcyan">Movie name:</strong></td>
+        <td style="width:300px"><strong style="font-size:large; color:darkcyan">Paid:</strong></td>
+        <td style="width:300px"><strong style="font-size:large; color:darkcyan">Date of order:</strong></td>
+    </tr>
+    @{
+        foreach (Order o in Model.orders)
+        {
+            <tr>
+                <td style="width:300px">
+                    <div style='width: 100px;'><strong>@o.UserName</strong></div>
+                </td>
+                <td style="width:300px">
+                    <div style='width: 100px;'><strong>@o.MovieName</strong></div>
+                    <span style="display:inline-block; width: 30px;"></span>
+                </td>
+                <td style="width:300px">
+                    <div style='width: 100px;'><strong>@o.Paid</strong></div>
+                </td>
+                <td style="width:300px">
+                    <div style='width: 100px;'><strong>@o.Date</strong></div>
+                </td>
+            </tr>
+        }
+
+    }
+</table>
+

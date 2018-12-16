@@ -1,0 +1,40 @@
+﻿@model Movie_Rent.Models.User
+
+@{
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <center>
+            @using (Html.BeginForm("LoginPage", "Login", FormMethod.Post))
+            {
+                <h3>
+                    <strong>User Name:</strong>
+                    @Html.TextBoxFor(x => x.UserName) 
+                    <br>
+                    <strong style="color:orangered">@ViewBag.message1</strong>
+                    <br>
+                    <strong>Password:</strong>
+                    <span style="display:inline-block; width: 5px;"></span>
+                    @Html.TextBoxFor(x => x.Password, new { @type = "password" })
+                    <br>
+                    <strong style="color:orangered">@ViewBag.message2</strong>
+                    <br>
+                    <br>
+                    <input id="submitLogin" class="btn btn-primary" type="submit" value="Login" style="font-size: large; height:50px; width:200px">
+                    <br>
+                    <br>
+                    @Html.ActionLink("Register", "RegistrationPage", "Login", new { @class = "btn btn-info", @style = "font-size: large; height:50px; width:200px" })
+                </h3>
+                <br>
+                @Html.ValidationMessageFor(x => x.UserName)
+                <br>
+                @Html.ValidationMessageFor(x => x.Password)
+            }
+     </center>
+</body>
+</html>

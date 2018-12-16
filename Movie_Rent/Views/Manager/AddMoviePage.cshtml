@@ -1,0 +1,48 @@
+﻿@model Movie_Rent.Models.Movie
+
+@{
+    ViewBag.Title = "Add Movie";
+}
+
+<center>
+    @using (Html.BeginForm("AddMoviePage", "Manager", FormMethod.Post))
+    {
+        <h3><strong style="color:gray">Add Movie:</strong></h3>
+            <h3>
+                <strong>Movie name:</strong>
+                <span style="display:inline-block; width: 25px;"></span>
+                @Html.TextBoxFor(x => x.MovieName, new {})
+                <br>
+                <strong style="color:orangered">@ViewBag.message1</strong>
+                <br>
+                <strong>Movie type:</strong>
+                <span style="display:inline-block; width: 30px;"></span>
+                @Html.TextBoxFor(x => x.Type, new { })
+                <br>
+                <br>
+                <strong>Movie description:</strong>
+                @Html.TextAreaFor(x => x.Description, new { })
+                <br>
+                <br>
+                <strong>Movie watch link:</strong>
+                <span style="display:inline-block; width: 5px;"></span>
+                @Html.TextAreaFor(x => x.Link, new { })
+                <br>
+                <br>
+                <strong>Movie image link:</strong>
+                <span style="display:inline-block; width: 5px;"></span>
+                @Html.TextAreaFor(x => x.ImageLink, new { })
+                <br>
+                <br>
+                @Html.ActionLink("Return", "MovieListPage", "Manager", new { @class = "btn btn-info", @style = "font-size: large; height:50px; width:200px" })
+                <input id="submitRegistr" class="btn btn-primary" type="submit" value="Add" style="font-size: large; height:50px; width:200px">
+            </h3>
+            <br>
+            @Html.ValidationMessageFor(x => x.MovieName)
+            <br>
+            @Html.ValidationMessageFor(x => x.Description)
+            <br>
+            @Html.ValidationMessageFor(x => x.Link)
+            
+    }
+</center>

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Pay Order";
+}
+
+<center>
+    <h2>You choose to rent @ViewBag.MovieName </h2>
+    <br />
+    <h3 style="color:darkcyan">The amount of payment for this movie is: 7$</h3>
+
+
+    <table>
+        <tr>
+            <td style="width:300px">
+            <strong> Credit card 4 last digit:</strong>
+            </td>
+            <td style="width:300px">
+                <span style="display:inline-block; width: 5px;"></span>
+                <input id="Text1" type="text" class="form-control"/>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:300px">
+                <strong> Owner id:</strong>
+            </td>
+            <td style="width:300px">
+                <span style="display:inline-block; width: 5px;"></span>
+                <input id="Text1" type="text" class="form-control" />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <a href="@Url.Action("PayOrder", "Home", new { @OrderNum= @ViewBag.OrderNum })">
+        <div style='width: 200px;' class="btn btn-info">Pay</div>
+    </a>
+</center>
