@@ -1,4 +1,4 @@
-Movie-Rent-web-site
+#Movie-Rent-web-site
 
 Dummy site for movie rentals. The site has a registration system with identification of existing users.
 There are two users - a regular user who can "rent a movie" and a manager user who has his own system that allows you to enter movies, 
